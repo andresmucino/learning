@@ -1,0 +1,17 @@
+{
+  "useWorkspaces": true, 
+  "version": "independent", 
+  "unpmClient": "yarn", 
+  "packages": [
+      "packages/*"
+  ],
+  "command": {
+      "publish": {
+          "ignorechanges": [
+              ".gitignore",
+              "*.log",
+              "*.md"
+          ]
+        }
+      }
+}
