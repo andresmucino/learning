@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Chat, Navbar } from "./components";
+import { useContextChat } from "./context";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+export const App = () => {
+  const { user } = useContextChat();
+  return user !== null ? (
+      <div>
+        <Navbar />
+        {user.estado ? (
+          <Chat />
+        ) : (
+          <div className="lead text-center mt-5">Debes iniciar sesión</div>
+        )}
+      </div>
+
+  ) : (
+    <div>Cargando...</div>
   );
-}
-
-export default App;
+};
